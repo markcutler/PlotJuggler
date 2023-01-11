@@ -224,7 +224,7 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::float_conversion<SRC, DST>>* = nullptr >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  if(std::isnan(from)){
+  if(!std::isnan(from)) {
     checkTruncation<SRC,DST>(from);
   }
   target = static_cast<DST>( from );
@@ -235,7 +235,9 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::unsigned_to_smaller_conversion<SRC, DST>>* = nullptr  >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  checkUpperLimit<SRC,DST>(from);
+  if(!std::isnan(from)) {
+    checkUpperLimit<SRC,DST>(from);
+  }
   target = static_cast<DST>(from);
 }
 
@@ -243,8 +245,10 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::signed_to_smaller_conversion<SRC, DST>>* = nullptr  >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  checkLowerLimit<SRC,DST>(from);
-  checkUpperLimit<SRC,DST>(from);
+  if(!std::isnan(from)) {
+    checkLowerLimit<SRC,DST>(from);
+    checkUpperLimit<SRC,DST>(from);
+  }
   target = static_cast<DST>( from);
 }
 
@@ -253,7 +257,7 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::signed_to_smaller_unsigned_conversion<SRC, DST>>* = nullptr  >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  if (from < 0){
+  if (!std::isnan(from) && from < 0 ){
     throw RangeException("Value is negative and can't be converted to signed");
   }
 
@@ -266,7 +270,7 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::signed_to_larger_unsigned_conversion<SRC, DST>>* = nullptr   >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  if (from < 0){
+  if (!std::isnan(from) && from < 0 ){
     throw RangeException("Value is negative and can't be converted to signed");
   }
 
@@ -284,7 +288,9 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::unsigned_to_smaller_signed_conversion<SRC, DST>>* = nullptr   >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  checkUpperLimit<SRC,DST>(from);
+  if(!std::isnan(from)) {
+    checkUpperLimit<SRC,DST>(from);
+  }
   target = static_cast<DST>( from);
 }
 
@@ -292,13 +298,14 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::floating_to_signed_conversion<SRC, DST>>* = nullptr   >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  checkLowerLimitFloat<SRC,DST>(from);
-  checkUpperLimitFloat<SRC,DST>(from);
+  if(!std::isnan(from)) {
+    checkLowerLimitFloat<SRC,DST>(from);
+    checkUpperLimitFloat<SRC,DST>(from);
 
-  if( from != static_cast<SRC>(static_cast<DST>( from))){
+    if( from != static_cast<SRC>(static_cast<DST>( from))){
       throw RangeException("Floating point truncated");
+    }
   }
-
   target = static_cast<DST>( from);
 }
 
@@ -306,16 +313,18 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::floating_to_unsigned_conversion<SRC, DST>>* = nullptr   >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  if (from < 0 ){
-    throw RangeException("Value is negative and can't be converted to signed");
+  if(!std::isnan(from))
+  {
+    if (from < 0 ){
+      throw RangeException("Value is negative and can't be converted to signed");
+    }
+
+    checkLowerLimitFloat<SRC,DST>(from);
+
+    if( from != static_cast<SRC>(static_cast<DST>( from))){
+      throw RangeException("Floating point truncated");
+    }
   }
-
-  checkLowerLimitFloat<SRC,DST>(from);
-
-  if( from != static_cast<SRC>(static_cast<DST>( from))){
-    throw RangeException("Floating point truncated");
-  }
-
   target = static_cast<DST>( from);
 }
 
@@ -323,7 +332,9 @@ template<typename SRC,typename DST,
           typename details::EnableIf< details::integer_to_floating_conversion<SRC, DST>>* = nullptr >
 inline void convert_impl( const SRC& from, DST& target )
 {
-  checkTruncation<SRC,DST>(from);
+  if(!std::isnan(from)) {
+    checkTruncation<SRC,DST>(from);
+  }
   target = static_cast<DST>( from);
 }
 
