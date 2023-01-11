@@ -282,6 +282,7 @@ Cdr& Cdr::serialize(
         return *this;
     }
 
+    printf("*************** h1 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -314,7 +315,7 @@ Cdr& Cdr::serialize(
 
         return *this;
     }
-
+    printf("*************** h2 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -370,7 +371,7 @@ Cdr& Cdr::serialize(
 
         return *this;
     }
-
+    printf("*************** h3 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -430,7 +431,7 @@ Cdr& Cdr::serialize(
 
         return *this;
     }
-
+    printf("*************** h4 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -486,7 +487,7 @@ Cdr& Cdr::serialize(
 
         return *this;
     }
-
+    printf("*************** h5 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -546,7 +547,7 @@ Cdr& Cdr::serialize(
 
         return *this;
     }
-
+    printf("*************** h6 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -656,7 +657,7 @@ Cdr& Cdr::serialize(
 
         return *this;
     }
-
+    printf("*************** h7 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -699,7 +700,7 @@ Cdr& Cdr::serialize(
 
         return *this;
     }
-
+    printf("*************** h8 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -729,6 +730,7 @@ Cdr& Cdr::serialize(
         else
         {
             setState(state_before_error);
+            printf("*************** h9 *****************\n");
             throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
         }
     }
@@ -772,6 +774,7 @@ Cdr& Cdr::serialize(
         else
         {
             setState(state_);
+            printf("*************** h10 *****************\n");
             throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
         }
     }
@@ -849,7 +852,7 @@ Cdr& Cdr::serializeArray(
 
         return *this;
     }
-
+    printf("*************** h11 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -868,7 +871,7 @@ Cdr& Cdr::serializeArray(
         m_currentPosition += totalSize;
         return *this;
     }
-
+    printf("*************** h12 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -915,7 +918,7 @@ Cdr& Cdr::serializeArray(
 
         return *this;
     }
-
+    printf("*************** h13 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -986,7 +989,7 @@ Cdr& Cdr::serializeArray(
 
         return *this;
     }
-
+    printf("*************** h14 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1098,7 +1101,7 @@ Cdr& Cdr::serializeArray(
         }
 
         return *this;
-    }
+    }printf("*************** h15 *****************\n");
 
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
@@ -1170,7 +1173,7 @@ Cdr& Cdr::serializeArray(
 
         return *this;
     }
-
+    printf("*************** h16 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1245,7 +1248,7 @@ Cdr& Cdr::serializeArray(
 
         return *this;
     }
-
+    printf("*************** h17 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1390,7 +1393,7 @@ Cdr& Cdr::serializeArray(
 
         return *this;
     }
-
+    printf("*************** h18 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1427,7 +1430,7 @@ Cdr& Cdr::deserialize(
         m_currentPosition++ >> char_t;
         return *this;
     }
-
+    printf("*************** h19 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1460,7 +1463,7 @@ Cdr& Cdr::deserialize(
 
         return *this;
     }
-
+    printf("*************** h20 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1516,7 +1519,7 @@ Cdr& Cdr::deserialize(
 
         return *this;
     }
-
+    printf("*************** h21 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1576,7 +1579,7 @@ Cdr& Cdr::deserialize(
 
         return *this;
     }
-
+    printf("*************** h22 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1632,7 +1635,7 @@ Cdr& Cdr::deserialize(
 
         return *this;
     }
-
+    printf("*************** h23 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1692,7 +1695,7 @@ Cdr& Cdr::deserialize(
 
         return *this;
     }
-
+    printf("*************** h24 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
@@ -1795,7 +1798,7 @@ Cdr& Cdr::deserialize(
 
         return *this;
     }
-
+    printf("*************** h25 *****************\n");
     throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
 }
 
